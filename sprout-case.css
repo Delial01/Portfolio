@@ -1,0 +1,128 @@
+
+/* R028 - all artwork aligns to the same 1280px column as the headings.
+   A browser gives figure elements 40px left/right margins by default.
+   Reset on Sprout ONLY so no original image is cropped or stretched. */
+.sp-main { padding-bottom: 12px; }
+.sp-main figure.bc-media { margin: 0; width: 100%; min-width: 0; }
+.sp-main .sp-intro-grid figure.bc-media { width: 100%; }
+
+.sp-intro-grid {
+  display:grid;
+  grid-template-columns:minmax(0,0.47fr) minmax(0,0.53fr);
+  gap:var(--case-chapter-gap);
+  align-items:start;
+  margin-bottom:26px;
+}
+.sp-intro-copy h1 {
+  margin:0;
+  font-size:clamp(60px,5.25vw,76px);
+  line-height:.9;
+  font-weight:850;
+  letter-spacing:-.04em;
+}
+.sp-intro-copy h2 {
+  margin:14px 0 18px;
+  color:var(--accent);
+  font-size:clamp(18px,1.54vw,22px);
+  font-weight:800;
+  line-height:1.1;
+  letter-spacing:-.03em;
+}
+.sp-intro-copy p {
+  margin:0;
+  font-size:var(--case-body-size);
+  line-height:1.43;
+  letter-spacing:-.017em;
+}
+.sp-intro-copy p + p { margin-top:20px; }
+.sp-intro-media img {
+  aspect-ratio:1 / 1;
+  object-fit:cover;
+}
+.sp-hero img {
+  aspect-ratio:1936 / 1452;
+  object-fit:cover;
+}
+.sp-stack {
+  display:grid;
+  gap:14px;
+}
+.sp-two-col {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+.sp-two-col .bc-media {
+  background:transparent;
+  overflow:visible;
+}
+.sp-two-col .bc-media img {
+  /* Keep the entire supplied photo visible: no cover crop. */
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:auto;
+  object-fit:contain;
+}
+.sp-two-col .bc-media:nth-child(2) img {
+  /* Slightly narrower so the second image matches the tote image height. */
+  width:96.05%;
+}
+.sp-trifold-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  width:100%;
+}
+/* Two genuinely equal columns; exactly the same narrow horizontal
+   and vertical gutter. Keep the complete supplied brochure images. */
+.sp-trifold-grid .bc-media {
+  overflow:visible;
+  background:transparent;
+  min-width:0;
+}
+.sp-trifold-grid .bc-media img {
+  display:block;
+  width:100%;
+  max-width:none;
+  height:auto;
+  aspect-ratio:auto;
+  object-fit:contain;
+  transform:none;
+}
+/* Respect the exact edge alignment used by every other Sprout image.
+   Preserve artwork and original aspect ratio; do not zoom / crop the boards. */
+.sp-identity-section .sp-stack .bc-media {
+  overflow:visible;
+  background:transparent;
+}
+.sp-identity-section .sp-stack .bc-media img {
+  display:block;
+  width:100%;
+  max-width:100%;
+  height:auto;
+  margin-left:0;
+  aspect-ratio:auto;
+  object-fit:contain;
+  transform:none;
+}
+.sp-main .bc-display { line-height:1.045; }
+.sp-video-wrap video {
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:16 / 9;
+  object-fit:contain;
+  background:#ddd7ca;
+}
+.sp-video-wrap { overflow:visible; }
+.sp-social-section { margin-bottom: clamp(76px, 7vw, 118px); }
+
+
+@media (max-width:980px) {
+  .sp-intro-grid { grid-template-columns:minmax(0,.45fr) minmax(0,.55fr); gap:32px; }
+}
+@media (max-width:680px) {
+  .sp-intro-grid, .sp-two-col, .sp-trifold-grid { grid-template-columns:1fr; }
+  .sp-intro-copy h1 { font-size:clamp(58px,12vw,82px); }
+}

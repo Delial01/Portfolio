@@ -1,0 +1,43 @@
+/* Print & Digital Ad Hocs / R017. Reuses approved Biona/Machandel/Bonsan typography. */
+.ah-main .bc-intro h1 { font-size:clamp(60px,5.35vw,76px); line-height:1.03; letter-spacing:-.027em; }
+.ah-main .bc-intro-split { margin-bottom:48px; }
+.ah-main figure { margin:0; }
+.ah-main img { display:block; width:100%; height:auto; }
+.ah-catalogue-photographs { display:grid; grid-template-columns:minmax(0,.385fr) minmax(0,.615fr); gap:18px; align-items:start; }
+.ah-photo { overflow:hidden; }
+.ah-photo img { height:auto; object-fit:contain; }
+.ah-large-photo { margin-top:22px !important; }
+.ah-large-photo img { width:100%; object-fit:cover; }
+.ah-gallery-section .bc-chapter-heading { margin-bottom:34px; }
+.ah-composite { width:100%; background:#fff; }
+.ah-composite img { display:block; height:auto; width:100%; object-fit:contain; }
+.ah-ocado { background:#c99f63; }
+.ah-instagram-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; align-items:start; }
+.ah-instagram-frame { position:relative; overflow:visible; background:transparent; }
+.ah-instagram-frame img { width:100%; height:auto; }
+.ah-work-label { margin:28px 0 14px; color:#111; font-size:clamp(12px,1.08vw,15px); font-weight:650; letter-spacing:.025em; text-transform:uppercase; }
+.ah-work-label:first-of-type { margin-top:24px; }
+.ah-brand-banners { margin-top:0!important; }
+/* Do not upscale the 834px supplied composite: display at native resolution for crisp artwork. */
+.ah-other-content { width:min(100%, 834px); margin-inline:auto; }
+/* Instagram frame artwork: the grey media well covers roughly
+   x=230..1111, y=223..1103 in a 1300 x 1672 image. A slight
+   overscan (source-equivalent 3-5px) masks its antialiased edges. */
+.ah-instagram-frame > img.ah-instagram-card-art { display:block; width:100%; height:auto; }
+.ah-instagram-frame > .ah-insta-media {
+ position:absolute;
+ left:17.4615384615%; top:13.1578947368%;
+ width:68.3076923077%; height:53.1100478469%;
+ display:block; z-index:1; object-fit:cover; border:0;
+ margin:0; padding:0; pointer-events:none;
+}
+.ah-instagram-frame video.ah-insta-video { background:#dfdfdf; }
+.ah-last { margin-bottom:clamp(78px,8vw,130px); }
+@media(max-width:680px){
+ .ah-main .bc-intro h1 { font-size:clamp(51px,11.5vw,72px); }
+ .ah-catalogue-photographs { gap:10px; }
+ .ah-large-photo { margin-top:12px !important; }
+ .ah-instagram-grid { grid-template-columns:1fr; gap:16px; }
+ .ah-instagram-frame { width:min(100%,470px); margin-inline:auto!important; }
+}
+

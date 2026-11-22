@@ -1,0 +1,41 @@
+/* Machandel / shares the Biona master case-study typography and spacing.
+   All decorative and artwork PNGs retain their original bytes and transparency. */
+.mc-main .bc-media { background: transparent; }
+.mc-main .bc-intro h1 { text-wrap: nowrap; }
+.mc-main .bc-intro-split { margin-bottom: 44px; }
+.mc-hero { background: #234879; }
+.mc-hero img { display:block; width:100%; height:auto; object-fit:contain; }
+.mc-graphic img { width:100%; height:auto; object-fit:contain; }
+.mc-colour-gallery { display:grid; grid-template-columns:1fr; gap: 18px; }
+.mc-product-gallery { display:grid; grid-template-columns:1fr; gap: 18px; }
+.mc-feature-photo img { width:100%; height:auto; object-fit:contain; }
+.mc-event-gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap: 16px; align-items:start; }
+.mc-event img { width:100%; height:auto; object-fit:contain; }
+.mc-after-space { height:110px; }
+@media (max-width:850px) { .mc-event-gallery { grid-template-columns: 1fr 1fr; } }
+@media (max-width:680px) { .mc-main .bc-intro h1 { text-wrap:wrap; } .mc-event-gallery { grid-template-columns:1fr; } .mc-after-space { height:60px; } }
+
+/* R006/R007 — approved Machandel review refinements; Biona/master typography untouched. */
+.mc-main .mc-smaller-pack-range { max-width: 1020px; margin-inline:auto; }
+.mc-main .mc-moodboard { position:relative; }
+.mc-main .mc-mood-bubble-text {
+  /* R007: lowered slightly so the text sits centrally in the navy speech bubble. */
+  position:absolute; top:28.5%; left:3.7%; width:19.2%; margin:0;
+  color:#fff; text-align:center; font-weight:400;
+  font-size:clamp(8px,1.48vw,20px); line-height:1.15; letter-spacing:-.018em;
+  pointer-events:none;
+}
+.mc-main .mc-anatomy-followup { margin-top:20px; }
+.mc-main .mc-event-gallery { gap:12px; align-items:stretch; }
+.mc-main .mc-event { aspect-ratio:4 / 5; background:#eae9e5; }
+.mc-main .mc-event img { width:100%; height:100%; object-fit:cover; aspect-ratio:4 / 5; }
+.mc-main .mc-event:nth-child(1) img { object-position:center 56%; }
+.mc-main .mc-event:nth-child(2) img { object-position:center 88%; }
+.mc-main .mc-event:nth-child(3) img { object-position:center 51%; }
+@media (max-width:900px) {
+ .mc-main .mc-mood-bubble-text { font-size:clamp(7px,1.48vw,16px); }
+}
+@media (max-width:680px) {
+ .mc-main .mc-smaller-pack-range { max-width:100%; }
+ .mc-main .mc-event { aspect-ratio:4 / 5; }
+}

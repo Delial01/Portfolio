@@ -1,0 +1,56 @@
+/* Bird & Blend case study — the same type system, content width, and section rhythm as other pages. */
+.bb-main { padding-bottom: 90px; }
+.bb-main figure.bc-media { margin:0; min-width:0; width:100%; }
+.bb-intro-grid {
+  display:grid;
+  grid-template-columns:minmax(0,.49fr) minmax(0,.51fr);
+  column-gap:var(--case-chapter-gap);
+  align-items:start;
+}
+.bb-intro-copy h1 {
+  font-size:clamp(55px,5.2vw,var(--case-title-size));
+  line-height:1.015;
+  font-weight:850;
+  letter-spacing:-.043em;
+  margin:0;
+}
+.bb-intro-copy h2 {
+  color:var(--accent);
+  font-size:clamp(18px,1.54vw,22px);
+  font-weight:800;
+  line-height:1.1;
+  letter-spacing:-.03em;
+  margin:16px 0 18px;
+}
+.bb-intro-copy p {
+  margin:0;
+  font-size:var(--case-body-size);
+  line-height:1.43;
+  letter-spacing:-.017em;
+}
+.bb-intro-copy p+p { margin-top:20px; }
+.bb-intro-media { background:transparent; padding-top:3px; }
+.bb-intro-media img { width:100%; height:auto; object-fit:contain; }
+.bb-system { background:transparent; }
+.bb-system img { display:block; width:100%; height:auto; object-fit:contain; }
+.bb-filter-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+.bb-filter-grid .bc-media { background:transparent; }
+.bb-filter-grid .bc-media img { display:block; width:100%; height:auto; object-fit:contain; }
+.bb-video-figure { display:flex; justify-content:center; background:transparent; }
+.bb-video-figure video { display:block; width:min(100%,480px); height:auto; aspect-ratio:3 / 4; background:#e9e7e3; object-fit:contain; }
+.bb-main .bc-display { line-height:1.045; }
+@media(max-width:980px) {
+  .bb-intro-grid { grid-template-columns:minmax(0,.47fr) minmax(0,.53fr); gap:32px; }
+  .bb-intro-copy h1 {font-size:clamp(48px,5.4vw,66px)}
+}
+@media(max-width:680px) {
+  .bb-intro-grid { grid-template-columns:1fr; gap:26px; }
+  .bb-intro-copy h1 { font-size:clamp(48px,11vw,72px); }
+  .bb-filter-grid {grid-template-columns:1fr; gap:14px;}
+  .bb-filter-grid .bc-media {max-width:510px; margin:0 auto;}
+}
+@media(prefers-reduced-motion:reduce){.bb-intro {animation:none}}

@@ -1,0 +1,20 @@
+/* Bonsan / R009 — reuse Biona master typography and section structure. */
+.bs-main .bc-media { background:transparent; }
+.bs-main .bc-index { text-wrap:balance; }
+.bs-main .bc-intro-split { margin-bottom:46px; }
+.bs-main .bc-intro h1 { text-wrap:nowrap; line-height:1.02; }
+.bs-main .bc-intro-text { padding-top:2px; }
+.bs-main .bc-intro-text h2 { max-width:670px; }
+.bs-main .bs-hero { background:#e4c218; }
+.bs-main .bs-photo img { display:block; width:100%; height:auto; object-fit:contain; }
+.bs-main .bs-exploration { display:grid; grid-template-columns:1fr; gap:clamp(20px,3vw,38px); }
+.bs-main .bs-art img { display:block; width:100%; height:auto; object-fit:contain; }
+/* Bottles are 1.8% trimmed at the *right edge* in a derivative, then centred as complete images. */
+.bs-main .bs-four-bottle { width:100%; margin-inline:auto; }
+.bs-main .bs-final { margin-bottom:clamp(84px,9vw,148px); }
+.bs-main .bs-final-image { width:100%; margin-inline:auto; }
+.bs-main .bs-final-image img { display:block; width:100%; height:auto; object-fit:contain; }
+@media(max-width:680px) {
+ .bs-main .bc-intro h1 { font-size:clamp(49px,11vw,74px); }
+ .bs-main .bs-exploration {gap:20px;}
+}

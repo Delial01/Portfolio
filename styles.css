@@ -1,0 +1,210 @@
+/* Delia Logigan · an intentionally small, asset-led portfolio system */
+:root {
+  --bg: #f6f5f2;
+  --ink: #0b0b0b;
+  --accent: #1737c8;
+  --gutter: clamp(22px, 4.25vw, 64px);
+  --gap: 12px;
+  --font: Arial, Helvetica, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 25px; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; font-kerning: normal; text-rendering: optimizeLegibility; }
+a { color: inherit; }
+button { font: inherit; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.skip { position: absolute; left: 12px; top: -100px; z-index: 20; padding: 10px 16px; background: var(--ink); color: white; }
+.skip:focus { top: 12px; }
+.sr-only { position: absolute; width: 1px; height: 1px; clip: rect(0,0,0,0); overflow: hidden; white-space: nowrap; }
+/* Outer shell is fluid; the readable content area caps at 1280px.
+   Existing section gutters stay inside the shell, including on phones. */
+.page-shell {
+  width: 100%;
+  max-width: calc(1280px + 2 * var(--gutter));
+  min-height: 100vh;
+  margin-inline: auto;
+}
+
+/* Identity and navigation */
+.site-header { display: flex; align-items: flex-start; gap: 36px; min-height: 82px; padding: 22px var(--gutter) 0; }
+.name-mark { display: flex; flex-direction: column; min-width: 145px; text-decoration: none; font-size: 28px; font-weight: 850; line-height: .81; letter-spacing: -.028em; }
+.role-mark { display: flex; flex-direction: column; justify-content: center; min-height: 46px; padding-left: 36px; border-left: 1px solid var(--ink); font-size: 16px; font-weight: 700; line-height: 1.04; letter-spacing: -.035em; text-transform: uppercase; }
+.nav { display: flex; gap: clamp(25px, 4.2vw, 62px); margin-left: auto; padding-top: 3px; }
+.nav a { position: relative; text-decoration: none; font-size: 19px; font-weight: 700; line-height: 1.15; }
+.nav a::after { content: ''; position: absolute; left: 0; right: 0; bottom: -10px; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .2s ease; }
+.nav a.current::after, .nav a:hover::after { transform: scaleX(1); }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.95fr) minmax(260px, .93fr); align-items: center; column-gap: clamp(26px, 4.6vw, 72px); min-height: 210px; padding: 0 var(--gutter); }
+.hero-title-block { align-self: start; padding-top: 6px; }
+.hero h1 { margin: 0; font-size: clamp(52px, 6.6vw, 94px); font-weight: 850; letter-spacing: -.034em; line-height: .86; }
+.hero h1 span { display: block; white-space: nowrap; }
+.hero-aside { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; min-height: 190px; padding: 10px 0 0 clamp(22px, 3vw, 45px); border-left: 1px solid var(--ink); }
+.hero-aside p { max-width: 375px; margin: 0; font-size: clamp(18px, 1.62vw, 25px); line-height: 1.16; letter-spacing: -.025em; }
+.hero-arrow { display: inline-flex; padding: 7px 12px 4px 0; transition: transform .18s ease, color .18s ease; }
+.hero-arrow:hover { color: var(--accent); transform: translateX(5px); }
+[data-enter] { animation: rise-in .55s cubic-bezier(.18,.78,.34,1) both; }
+@keyframes rise-in { from { opacity: .01; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Filters and two-column work grid */
+.work { margin-top: 9px; }
+.filters { display: flex; align-items: center; flex-wrap: wrap; gap: 8px clamp(20px, 2.35vw, 36px); min-height: 36px; margin: 0 0 19px; padding: 0 var(--gutter); }
+.filter { padding: 7px 1px; border: 0; background: none; color: var(--ink); cursor: pointer; font-size: 15px; font-weight: 700; letter-spacing: -.035em; white-space: nowrap; transition: color .18s, background-color .18s; }
+.filter:hover { color: var(--accent); }
+.filter.active { padding: 7px 22px; border-radius: 99px; background: var(--ink); color: white; font-weight: 400; }
+.filter.active:hover { background: var(--accent); }
+.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap); padding: 0 var(--gutter); }
+.project-card { position: relative; display: block; aspect-ratio: 1.83; overflow: hidden; background: #e2e0dc; isolation: isolate; text-decoration: none; transition: transform .25s ease; }
+.project-card:hover, .project-card:focus-visible { transform: translateY(-2px); }
+.project-card img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.001); transition: transform .5s cubic-bezier(.2,.75,.25,1); }
+.project-card:hover img, .project-card:focus-visible img { transform: scale(1.027); }
+.project-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.83), rgba(0,0,0,.42) 57%, rgba(0,0,0,.08)); opacity: 0; transition: opacity .3s ease; }
+.project-card:hover::after, .project-card:focus-visible::after { opacity: 1; }
+.project-overlay { position: absolute; z-index: 1; left: 25px; right: 25px; bottom: 23px; color: white; opacity: 0; transform: translateY(9px); transition: opacity .3s ease, transform .3s ease; }
+.project-card:hover .project-overlay, .project-card:focus-visible .project-overlay { opacity: 1; transform: translateY(0); }
+.project-label { display: flex; justify-content: space-between; gap: 12px; margin: 0 0 10px; font-size: 11px; font-weight: 700; letter-spacing: .055em; text-transform: uppercase; }
+.project-overlay h2 { max-width: 85%; margin: 0 0 8px; font-size: clamp(24px, 2.55vw, 41px); font-weight: 700; letter-spacing: -.05em; line-height: 1; }
+.project-overlay p { max-width: 83%; margin: 0; font-size: clamp(13px, 1.17vw, 18px); line-height: 1.24; }
+.card-arrow { position: absolute; right: 0; bottom: 0; font-size: 30px; }
+.project-card[hidden] { display: none !important; }
+
+/* Closing section — only the top rule */
+.contact-section { margin: 30px var(--gutter) 0; padding-top: 20px; border-top: 1px solid var(--ink); scroll-margin-top: 25px; }
+.contact-layout { display: grid; grid-template-columns: 1.6fr 1fr; align-items: center; column-gap: clamp(35px, 4vw, 70px); padding-bottom: 32px; min-height: 153px; }
+.contact-kicker { margin: 0 0 13px; font-size: 12px; font-weight: 700; letter-spacing: .02em; }
+.contact-left h2 { margin: 0; font-size: clamp(65px, 8.2vw, 124px); font-weight: 850; letter-spacing: -.034em; line-height: .92; white-space: nowrap; }
+.contact-right { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.contact-right p { max-width: 490px; margin: 0; font-size: clamp(19px, 1.68vw, 28px); line-height: 1.19; letter-spacing: -.03em; }
+.contact-action { display: inline-flex; align-items: center; justify-content: space-between; gap: 37px; padding: 0 0 7px; border-bottom: 3px solid var(--accent); text-decoration: none; font-size: 15px; font-weight: 700; letter-spacing: -.01em; transition: gap .2s ease, color .2s ease; }
+.contact-action[href]:hover { gap: 47px; color: var(--accent); }
+.contact-action:not([href]) { cursor: default; }
+.contact-bottom { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 48px; padding: 15px 0 22px; font-size: 11px; font-weight: 700; letter-spacing: .015em; }
+.contact-bottom a { text-decoration: none; }
+.contact-bottom a:hover { color: var(--accent); }
+
+@media (max-width: 1240px) {
+  .site-header { gap: 20px; }
+  .role-mark { padding-left: 24px; }
+  .nav { gap: 30px; }
+  .hero { grid-template-columns: minmax(0, 1.92fr) minmax(260px, .91fr); column-gap: 28px; }
+  .hero h1 { font-size: clamp(51px, 6.55vw, 85px); }
+  .hero-aside { min-height: 190px; padding-left: 26px; }
+  .hero-aside p { font-size: 20px; }
+  .filters { gap: 8px 23px; }
+  .contact-left h2 { font-size: clamp(64px, 7.9vw, 100px); }
+}
+@media (max-width: 900px) {
+  .site-header { min-height: 95px; }
+  .name-mark { min-width: 116px; font-size: 25px; }
+  .role-mark { font-size: 13px; }
+  .nav a { font-size: 15px; }
+  .hero { grid-template-columns: 1fr; gap: 27px; min-height: 0; padding-top: 20px; }
+  .hero-title-block { padding-top: 0; }
+  .hero h1 { font-size: clamp(47px, 8vw, 73px); }
+  .hero-aside { min-height: 0; max-width: 670px; gap: 16px; }
+  .hero-aside p { max-width: 610px; }
+  .work { margin-top: 32px; }
+  .contact-layout { gap: 24px; }
+  .contact-left h2 { font-size: clamp(56px, 8vw, 80px); }
+  .contact-right p { font-size: 19px; }
+}
+@media (max-width: 620px) {
+  :root { --gutter: 21px; --gap: 12px; }
+  .site-header { display: grid; grid-template-columns: 1fr auto; column-gap: 13px; row-gap: 20px; min-height: 0; padding-top: 22px; }
+  .name-mark { min-width: 0; font-size: 26px; }
+  .role-mark { align-self: start; min-height: 34px; padding-left: 16px; font-size: 11px; }
+  .nav { grid-column: 1 / -1; justify-content: space-between; margin: 0; padding: 0 0 8px; }
+  .nav a { font-size: 15px; }
+  .nav a::after { bottom: -6px; }
+  .hero { gap: 27px; padding-top: 39px; }
+  .hero h1 { font-size: clamp(39px, 9.2vw, 61px); line-height: .95; letter-spacing: -.034em; }
+  .hero h1 span { white-space: normal; }
+  .hero-aside { padding-left: 19px; }
+  .hero-aside p { font-size: 19px; line-height: 1.24; }
+  .hero-arrow svg { width: 36px; height: 24px; }
+  .work { margin-top: 31px; }
+  .filters { gap: 7px 17px; margin-bottom: 16px; }
+  .filter { font-size: 12px; }
+  .filter.active { padding: 7px 18px; }
+  .project-grid { grid-template-columns: 1fr; }
+  .project-card { aspect-ratio: 1.56; }
+  .project-card::after { opacity: 1; background: linear-gradient(to top, rgba(0,0,0,.8), transparent 65%); }
+  .project-overlay { left: 17px; right: 17px; bottom: 15px; opacity: 1; transform: none; }
+  .project-label { font-size: 10px; margin-bottom: 6px; }
+  .project-overlay h2 { font-size: 25px; }
+  .project-overlay p { max-width: 90%; font-size: 13px; }
+  .contact-section { margin-top: 38px; }
+  .contact-layout { grid-template-columns: 1fr; gap: 26px; padding: 16px 0 25px; }
+  .contact-kicker { font-size: 11px; margin-bottom: 15px; }
+  .contact-left h2 { font-size: clamp(57px, 13vw, 78px); }
+  .contact-right p { font-size: 21px; }
+  .contact-bottom { flex-wrap: wrap; align-items: baseline; gap: 12px; font-size: 10px; }
+  .contact-bottom span:nth-child(2) { order: 3; width: 100%; }
+}
+@media (hover: none) and (min-width: 621px) {
+  .project-card::after { opacity: 1; background: linear-gradient(to top, rgba(0,0,0,.72), transparent 66%); }
+  .project-overlay { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+}
+
+
+/* R032 · Homepage refinement. Shared case-study typography and section styles unchanged. */
+/* The widest headline line fits inside its own column at desktop and laptop widths. */
+.hero { grid-template-columns: minmax(0, 1.95fr) minmax(0, .93fr); column-gap: clamp(28px, 4.2vw, 68px); }
+.hero h1 { font-size: clamp(43px, 4.8vw, 69px); line-height: .95; letter-spacing: -.034em; }
+.hero-title-block { min-width: 0; }
+.hero-aside { min-height: 171px; padding-left: clamp(22px, 2.6vw, 38px); }
+.hero-aside p { font-size: clamp(17px, 1.4vw, 21px); line-height: 1.22; }
+
+/* Updated, legible rollovers; source images are optimised high-resolution artwork. */
+.project-card img { image-rendering: auto; }
+.project-card::after { background: linear-gradient(to top, rgba(0,0,0,.87) 0%, rgba(0,0,0,.56) 46%, rgba(0,0,0,.08) 100%); }
+.project-overlay { left: 25px; right: 25px; bottom: 23px; }
+.project-overlay h2 { max-width: 92%; margin: 0 0 7px; font-size: clamp(20px, 2vw, 29px); font-weight: 750; line-height: 1.06; letter-spacing: -.038em; text-wrap: pretty; }
+.project-overlay p { max-width: min(90%, 490px); font-size: clamp(12px, 1vw, 15px); line-height: 1.32; text-wrap: pretty; }
+.project-label { margin-bottom: 11px; font-size: 10px; }
+.card-arrow { font-size: 26px; }
+
+/* Full-width contact section. Contact details share the 1280px text edges. */
+.contact-section { margin-top: 42px; padding-top: 23px; }
+.contact-intro { max-width: 100%; }
+.contact-kicker { margin-bottom: 15px; }
+.contact-intro h2 { margin: 0; font-size: clamp(43px, 4.8vw, 69px); font-weight: 850; line-height: .95; letter-spacing: -.034em; }
+.contact-description { max-width: 670px; margin: 21px 0 0; font-size: clamp(18px, 1.65vw, 23px); line-height: 1.26; letter-spacing: -.023em; }
+.contact-email { margin-top: 37px; max-width: 100%; }
+.contact-email-link { display: inline-flex; align-items: baseline; gap: clamp(12px, 2.5vw, 30px); max-width: 100%; color: var(--accent); padding-bottom: 6px; border-bottom: 2px solid currentColor; font-size: clamp(21px, 2.7vw, 36px); font-weight: 700; line-height: 1.17; letter-spacing: -.032em; text-decoration: none; overflow-wrap: normal; transition: color .18s ease; }
+.contact-email-link:hover, .contact-email-link:focus-visible { color: var(--ink); }
+.contact-email-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+/* Keep the entire email address (including the final s) on one line. */
+#contact-email-address { white-space: nowrap; flex: 0 0 auto; }
+.contact-email-arrow { flex: 0 0 auto; font-size: .82em; font-weight: 400; }
+.contact-bottom { margin-top: 38px; border-top: 1px solid #b9b7b2; padding-top: 18px; }
+@media (max-width: 1240px) and (min-width: 901px) {
+  .hero h1 { font-size: clamp(43px, 4.65vw, 58px); }
+  .hero-aside { min-height: 156px; }
+  .hero-aside p { font-size: 17px; }
+}
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 27px; }
+  .hero h1 { font-size: clamp(47px, 7.5vw, 68px); }
+  .hero-aside { min-height: 0; }
+  .contact-intro h2 { font-size: clamp(47px, 7.5vw, 68px); }
+  .contact-email { margin-top: 30px; }
+}
+@media (max-width: 620px) {
+  .hero h1 { font-size: clamp(39px, 9.2vw, 57px); line-height: .97; }
+  .contact-intro h2 { font-size: clamp(39px, 9.2vw, 57px); }
+  .project-card::after { background: linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.25) 62%, transparent 95%); }
+  .project-overlay { left: 17px; right: 17px; bottom: 14px; }
+  .project-overlay h2 { font-size: 23px; max-width: 92%; }
+  .project-overlay p { font-size: 12px; max-width: 94%; line-height: 1.3; }
+  .project-label { font-size: 9px; margin-bottom: 7px; }
+  .contact-section { margin-top: 34px; padding-top: 18px; }
+  .contact-description { font-size: 19px; margin-top: 17px; }
+  .contact-email { margin-top: 27px; }
+  .contact-email-link { font-size: clamp(14px, 4.4vw, 28px); gap: clamp(6px, 1.7vw, 11px); }
+  .contact-bottom { margin-top: 26px; }
+}

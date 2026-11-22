@@ -1,0 +1,60 @@
+/* Windmill Organics Catalogue — 92 original PDF pages rendered as turnable sheets. */
+.cm-main { padding-bottom:20px; }
+.cm-intro .bc-intro-split {margin-bottom:58px;}
+.cm-intro h1 {font-size:clamp(58px,5.35vw,76px); line-height:1.005;letter-spacing:-.025em; font-kerning:normal;}
+.cm-intro .bc-intro-text {padding-top:3px;}
+.cm-presentation {margin:0 auto 0;}
+.cm-presentation-top {display:flex;justify-content:space-between;align-items:center; gap:16px; margin-bottom:20px; padding:14px 0 0; border-top:1px solid #bbb8b2;}
+.cm-eyebrow {margin:0; font-size:12px; font-weight:800; letter-spacing:.085em; color:var(--ink); display:flex; align-items:center;gap:8px;}
+.cm-indicator {height:7px; width:7px; border-radius:50%; background:var(--accent);display:inline-block;}
+.cm-faint{color:#99968f;}
+.cm-top-links {display:flex;gap:25px;align-items:center;}
+.cm-top-links a,.cm-top-links button {font-size:12px;letter-spacing:.06em; font-weight:750; border:0;background:transparent;color:var(--ink);text-decoration:none;padding:5px 0;cursor:pointer;white-space:nowrap;}
+.cm-top-links a:hover,.cm-top-links button:hover {color:var(--accent);}
+.cm-viewer{background:#eeece8; border:1px solid #e2ded6; padding:20px 28px 17px; position:relative; }
+.cm-stage {min-height:0;height:clamp(400px,62vw,810px);display:flex;align-items:center;justify-content:center;position:relative;overflow:visible; perspective:1800px;touch-action:pan-y;}
+.cm-single {display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; width:min(43%,470px);max-height:100%; gap:13px;transition:opacity .32s ease,transform .32s ease;}
+.cm-single img {display:block;width:auto;height:auto;max-width:100%;max-height:min(700px,53vw);aspect-ratio:595/842; object-fit:contain;cursor:pointer;box-shadow:9px 12px 18px rgba(34,28,24,.17),0px 2px 6px rgba(34,28,24,.09);}
+.cm-single img:hover{filter:brightness(.99)}
+#cm-cover-instruction {font-size:11px;letter-spacing:.085em;font-weight:750;white-space:nowrap;}
+.cm-book {position:relative; width:100%; max-width:1170px; aspect-ratio:1190.55/841.89;filter:drop-shadow(6px 12px 14px rgba(44,36,31,.23));transform-style:preserve-3d;}
+.cm-book[hidden],.cm-single[hidden],.cm-flipper[hidden]{display:none!important;}
+.cm-leaf{position:absolute;top:0;width:50%;height:100%;background:#fff;overflow:hidden;}
+.cm-leaf-left {left:0;box-shadow:inset -6px 0 16px rgba(0,0,0,.09);}
+.cm-leaf-right{right:0;box-shadow:inset 6px 0 16px rgba(0,0,0,.08);}
+.cm-leaf img,.cm-face img {display:block;width:100%;height:100%;object-fit:fill;}
+.cm-leaf img{cursor:zoom-in;}
+.cm-spine{position:absolute; left:calc(50% - 5px);top:0;height:100%;width:10px;background:linear-gradient(90deg,rgba(0,0,0,.12),rgba(0,0,0,.035) 45%,rgba(255,255,255,.35) 57%,rgba(0,0,0,.045));pointer-events:none; z-index:6;}
+.cm-paper-inset{position:absolute;inset:0;pointer-events:none; box-shadow:inset 0 0 2px rgba(0,0,0,.06);}
+.cm-flipper{position:absolute;left:50%;top:0;width:50%;height:100%;transform-style:preserve-3d;perspective:2300px;z-index:7;pointer-events:none;}
+.cm-turning-sheet{position:absolute;inset:0; transform-origin:left center;transform-style:preserve-3d;}
+.cm-face{position:absolute;inset:0; backface-visibility:hidden;background:#fff;overflow:hidden;}
+.cm-face-front{box-shadow:inset 8px 0 16px rgba(0,0,0,.10);}
+.cm-face-back{transform:rotateY(180deg);box-shadow:inset -8px 0 16px rgba(0,0,0,.10);}
+.cm-bottom-controls{display:grid;grid-template-columns:auto minmax(0,1fr); align-items:center;column-gap:36px;row-gap:10px;margin-top:16px;border-top:1px solid #d4d0c9;padding-top:13px;}
+.cm-arrows{display:flex;align-items:center;gap:12px;}
+.cm-arrow{display:flex;align-items:center;gap:10px;justify-content:center;padding:13px 14px;background:#0b0b0b;color:white;border:0;cursor:pointer;min-width:120px;font-size:15px;font-weight:750;transition:background .2s;}
+.cm-arrow:hover:not(:disabled){background:var(--accent);}
+.cm-arrow:disabled{background:#d1cec9;color:#78756f;cursor:not-allowed;}
+.cm-arrow span{font-size:10px;letter-spacing:.08em;}
+.cm-pagination{display:flex;align-items:center;gap:14px;min-width:0;}
+.cm-page-label{font-size:11px;font-weight:750;letter-spacing:.055em;min-width:125px;white-space:nowrap;}
+.cm-count{font-size:11px;white-space:nowrap;min-width:40px;text-align:right;font-weight:750;color:#5a5550;}
+#cm-page-slider{flex:1;width:100%;min-width:55px;accent-color:var(--accent);cursor:pointer;}
+.cm-instructions{font-size:12px;color:#66635e;margin:12px 0 0;line-height:1.4;}
+.cm-photos-section{margin-top:clamp(85px,8vw,135px);}
+.cm-photographs{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;max-width:1000px;margin:0 auto;}
+.cm-photographs figure{margin:0;background:#ece9e3;}
+.cm-photographs img{display:block;width:100%;height:auto;object-fit:contain;}
+.cm-lightbox{position:fixed; inset:4vh auto auto; margin:auto;max-height:92vh;max-width:min(91vw,1250px);border:0;padding:12px;background:#f9f8f5;color:#090909;box-shadow:0 20px 80px rgba(0,0,0,.3);}
+.cm-lightbox::backdrop{background:rgba(18,16,14,.77);}
+.cm-lightbox-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:3px 0 12px;font-size:12px;letter-spacing:.08em;font-weight:700;}
+.cm-lightbox-bar button{cursor:pointer;background:none;border:0;font-weight:750;padding:6px 3px;}
+.cm-lightbox img{display:block;width:auto;max-width:100%;max-height:calc(88vh - 55px);object-fit:contain;margin:auto;}
+.cm-viewer:fullscreen{background:#eeece8;border:0;padding:2.5vh 3vw 2vh;display:flex;flex-direction:column;justify-content:center;}
+.cm-viewer:fullscreen .cm-stage{height:min(78vh,920px);}
+.cm-viewer:fullscreen .cm-single img{max-height:74vh;}
+.cm-viewer:fullscreen .cm-bottom-controls{width:100%;}
+@media(max-width:920px){.cm-intro h1{font-size:clamp(49px,6.1vw,68px)}.cm-stage{height:clamp(350px,59vw,670px)}.cm-single img{max-height:54vw}.cm-viewer{padding:16px 17px}.cm-bottom-controls{grid-template-columns:1fr}.cm-pagination{width:100%;}.cm-arrows{justify-content:space-between;}}
+@media(max-width:680px){.cm-intro h1{font-size:clamp(52px,11vw,74px);line-height:1.03;}.cm-intro .bc-intro-split{margin-bottom:32px}.cm-presentation-top{align-items:flex-start;flex-wrap:wrap;gap:12px}.cm-top-links{gap:16px}.cm-viewer{padding:12px 9px 12px;}.cm-stage{height:clamp(265px,70vw,460px);}.cm-single{width:min(60%,340px);}.cm-single img{max-height:62vw;}.cm-arrow{min-width:100px;padding:10px 12px}.cm-page-label{min-width:105px;font-size:10px}.cm-photographs{grid-template-columns:1fr;gap:15px}.cm-instructions{font-size:11px}.cm-top-links a,.cm-top-links button{font-size:10px}.cm-eyebrow{font-size:10px}.cm-count{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.cm-single{transition:none}.cm-arrow{transition:none}}
