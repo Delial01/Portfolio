@@ -1,0 +1,122 @@
+{
+  "01-hero.webp": {
+    "from": "Artboard 1@3x-80.jpg",
+    "size": [
+      2048,
+      1175
+    ],
+    "bytes": 416500
+  },
+  "03-competitor-moodboard.webp": {
+    "from": "Artboard 1 copy 2@3x-80.jpg",
+    "size": [
+      2048,
+      1128
+    ],
+    "bytes": 519254
+  },
+  "04-competitor-analysis.webp": {
+    "from": "Artboard 14@3x-80.jpg",
+    "size": [
+      2048,
+      1201
+    ],
+    "bytes": 295636
+  },
+  "06-route-1.webp": {
+    "from": "Artboard 14@3x-80(1).jpg",
+    "size": [
+      2048,
+      1070
+    ],
+    "bytes": 316176
+  },
+  "07-route-2.webp": {
+    "from": "Artboard 14 copy@3x-80.jpg",
+    "size": [
+      2048,
+      1070
+    ],
+    "bytes": 315928
+  },
+  "08-route-3.webp": {
+    "from": "Artboard 14 copy 2@3x-80.jpg",
+    "size": [
+      2048,
+      1071
+    ],
+    "bytes": 308976
+  },
+  "09a-chosen-quinoa-artwork.webp": {
+    "from": "Artboard 15 copy 2@3x-80.jpg",
+    "size": [
+      1747,
+      865
+    ],
+    "bytes": 256228
+  },
+  "09b-chosen-corn-artwork.webp": {
+    "from": "Artboard 15 copy@3x-80.jpg",
+    "size": [
+      1747,
+      865
+    ],
+    "bytes": 205508
+  },
+  "09c-chosen-salted-artwork.webp": {
+    "from": "Artboard 15@3x-80.jpg",
+    "size": [
+      1747,
+      865
+    ],
+    "bytes": 235864
+  },
+  "10a-shelf-before.webp": {
+    "from": "Artboard 14 copy@2x-80.jpg",
+    "size": [
+      2048,
+      1000
+    ],
+    "bytes": 283828
+  },
+  "10b-shelf-after.webp": {
+    "from": "Artboard 14@2x-80.jpg",
+    "size": [
+      2048,
+      999
+    ],
+    "bytes": 288276
+  },
+  "11-flaxseed-line-extension.webp": {
+    "from": "Artboard 1 copy 8@3x-80.jpg",
+    "size": [
+      2048,
+      1134
+    ],
+    "bytes": 347814
+  },
+  "12-flaxseed-detail.webp": {
+    "from": "Artboard 1 copy 9@3x-80.jpg",
+    "size": [
+      2048,
+      1280
+    ],
+    "bytes": 518110
+  },
+  "13-flaxseed-lifestyle.webp": {
+    "from": "Artboard 16@3x-80.jpg",
+    "size": [
+      2047,
+      1259
+    ],
+    "bytes": 465208
+  },
+  "14-launch-campaign.webp": {
+    "from": "Artboard 1 copy 10@3x-80.jpg",
+    "size": [
+      2048,
+      1279
+    ],
+    "bytes": 528016
+  }
+}
